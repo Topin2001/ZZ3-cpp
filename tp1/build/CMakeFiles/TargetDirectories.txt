@@ -1,5 +1,0 @@
-/home/topin/Documents/isima/ZZ3/cpp/tp1/build/CMakeFiles/tp1_point.dir
-/home/topin/Documents/isima/ZZ3/cpp/tp1/build/CMakeFiles/tp1_vecteur.dir
-/home/topin/Documents/isima/ZZ3/cpp/tp1/build/CMakeFiles/tp1_test.dir
-/home/topin/Documents/isima/ZZ3/cpp/tp1/build/CMakeFiles/edit_cache.dir
-/home/topin/Documents/isima/ZZ3/cpp/tp1/build/CMakeFiles/rebuild_cache.dir
