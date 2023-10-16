@@ -31,7 +31,7 @@ public:
 template <typename T>
 T barycentre_v1(const Nuage<T> &n)
 {
-    Cartesien p(0, 0);
+    Polaire p(0, 0);
     double x_sum = 0.0;
     double y_sum = 0.0;
 
@@ -42,12 +42,12 @@ T barycentre_v1(const Nuage<T> &n)
 
     for (T const & pt : n)
     {
-        Cartesien c = pt;
-        x_sum += c.getX();
-        y_sum += c.getY();
+        Polaire c = pt;
+        x_sum += c.getAngle();
+        y_sum += c.getDistance();
     }
-    p.setX(x_sum / n.size());
-    p.setY(y_sum / n.size());
+    p.setAngle(x_sum / n.size());
+    p.setDistance(y_sum / n.size());
 
     return p;
 }
