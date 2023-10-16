@@ -52,4 +52,27 @@ T barycentre_v1(const Nuage<T> &n)
     return p;
 }
 
+template <typename T, template<typename> typename U>
+T barycentre_v2(const U<T> &n){
+    Cartesien p(0, 0);
+    double x_sum = 0.0;
+    double y_sum = 0.0;
+
+    if (n.size() == 0)
+    {
+        return p;
+    }
+
+    for (T const & pt : n)
+    {
+        Cartesien c = pt;
+        x_sum += c.getX();
+        y_sum += c.getY();
+    }
+    p.setX(x_sum / n.size());
+    p.setY(y_sum / n.size());
+
+    return p;
+}
+
 #endif
