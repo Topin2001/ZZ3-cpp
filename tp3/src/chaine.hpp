@@ -42,11 +42,26 @@ std::string chaine(const double &x)
 };
 
 template <class... Args>
-std::string chaine(const Args & ... x)
+std::string chaine(const Args &...x)
 {
     std::stringstream ss;
     ((ss << chaine(x) << " "), ...);
     return ss.str();
 };
+
+template <class... Args, size_t... Is>
+std::string chaine_helper(const std::tuple<Args...> &x, const std::integer_sequence<size_t, Is...>&)
+{
+    return chaine(std::get<Is>(x)...);
+};
+
+template <class... Args>
+std::string chaine(const std::tuple<Args...> &x)
+{
+    std::stringstream ss;
+    ss << chaine_helper(x, std::make_integer_sequence<size_t, sizeof...(Args)>());
+    return ss.str();
+};
+
 
 #endif
