@@ -19,6 +19,9 @@ public:
     }
 };
 
+template <class... Args>
+std::string chaine(const std::tuple<Args...> &x);
+
 template <typename T>
 std::string chaine(const T &x)
 {
