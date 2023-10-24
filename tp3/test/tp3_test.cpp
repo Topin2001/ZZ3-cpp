@@ -7,6 +7,7 @@
 
 #include <chaine.hpp>
 #include <factorielle.hpp>
+#include <puissance.hpp>
 //#include <cosinus.hpp>
 //#include <exponentielle.hpp>
 
@@ -209,11 +210,11 @@ TEST_CASE ( "TP3_Metaprog::Factorielle" ) {
 }
 
 //------------------------------------------------------------------------------------------------ 8
-/*TEST_CASE ( "TP3_Metaprog::Puissance" ) {
+TEST_CASE ( "TP3_Metaprog::Puissance" ) {
  REQUIRE ( Puissance<0>::valeur(3.0) == Approx(1.0) );
  REQUIRE ( Puissance<1>::valeur(3.0) == Approx(3.0) );
  REQUIRE ( Puissance<4>::valeur(3.0) == Approx(3.0*3.0*3.0*3.0) );
-}*/
+}
 
 //------------------------------------------------------------------------------------------------ 9
 /*TEST_CASE ( "TP3_Metaprog::Exponentielle" ) {

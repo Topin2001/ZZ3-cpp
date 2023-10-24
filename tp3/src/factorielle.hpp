@@ -4,7 +4,7 @@ template <int N>
 class Factorielle
 {
 public:
-    static unsigned long int const valeur = N * Factorielle<N - 1>::valeur;  
+    static unsigned long int const valeur = N * Factorielle<N - 1>::valeur;
 };
 
 template <>
