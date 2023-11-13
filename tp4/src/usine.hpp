@@ -1,18 +1,19 @@
 #ifndef __USINE_HPP__
 #define __USINE_HPP__
 
-#include <memory>
 #include "carte.hpp"
 
 
 class UsineCarte
 {
 private:
-    /* data */
+    unsigned NombreCarte;
+    unsigned Compteur = 0;
+    UsineCarte(UsineCarte const &) = delete;
+    UsineCarte(UsineCarte &&) = delete;
 public:
-    UsineCarte(/* args */);
-    ~UsineCarte();
     std::unique_ptr<Carte> getCarte();
+    UsineCarte(unsigned NombreCarte = 52) : NombreCarte(NombreCarte) {};
 };
 
 

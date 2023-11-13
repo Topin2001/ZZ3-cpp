@@ -7,70 +7,79 @@
 
 #include <carte.hpp>
 #include <usine.hpp>
-//#include <paquet.hpp>
-//#include <ressource.hpp>
-//#include <consommateur.hpp>
+#include <ressource.hpp>
+// #include <consommateur.hpp>
 
 // Tests //-----------------------------------------------------------------------------------------
 
-template <typename T,typename = void> struct has_public_constructor : std::false_type {};
+template <typename T, typename = void>
+struct has_public_constructor : std::false_type
+{
+};
 
 template <typename T>
-struct has_public_constructor< T,
-                               std::enable_if_t<std::is_same<T,decltype(T(1))>::value>
-                             > : std::true_type {};
+struct has_public_constructor<T,
+                              std::enable_if_t<std::is_same<T, decltype(T(1))>::value>> : std::true_type
+{
+};
 
 //------------------------------------------------------------------------------------------------ 1
-TEST_CASE ( "TP4_Carte::Usine52" ) {
- UsineCarte usine;
+TEST_CASE("TP4_Carte::Usine52")
+{
+    UsineCarte usine;
 
- for (unsigned i = 0; i<52; ++i) {
-  std::unique_ptr<Carte> carte(usine.getCarte());
+    for (unsigned i = 0; i < 52; ++i)
+    {
+        std::unique_ptr<Carte> carte(usine.getCarte());
 
-  REQUIRE ( carte->getValeur() == i );
- }
+        REQUIRE(carte->getValeur() == i);
+    }
 
- REQUIRE ( usine.getCarte() == nullptr );
+    REQUIRE(usine.getCarte() == nullptr);
 }
 
 //------------------------------------------------------------------------------------------------ 2
-/*TEST_CASE ( "TP4_Carte::CarteInterface" ) {
- // Contructeur de copie existe ?
- REQUIRE ( std::is_copy_constructible<Carte>::value == false );
+TEST_CASE("TP4_Carte::CarteInterface")
+{
+    // Contructeur de copie existe ?
+    REQUIRE(std::is_copy_constructible<Carte>::value == false);
 
- // Operateur d'affectation par copie existe ?
- REQUIRE ( std::is_copy_assignable<Carte>::value == false );
+    // Operateur d'affectation par copie existe ?
+    REQUIRE(std::is_copy_assignable<Carte>::value == false);
 
- // Constructeur ad hoc existe ?
- REQUIRE ( has_public_constructor<Carte>::value == false );
-}*/
+    // Constructeur ad hoc existe ?
+    REQUIRE(has_public_constructor<Carte>::value == false);
+}
 
 //------------------------------------------------------------------------------------------------ 3
-/*TEST_CASE ( "TP4_Carte::UsineInterface" ) {
- // Contructeur de copie existe ?
- REQUIRE ( std::is_copy_constructible<UsineCarte>::value == false );
+TEST_CASE("TP4_Carte::UsineInterface")
+{
+    // Contructeur de copie existe ?
+    REQUIRE(std::is_copy_constructible<UsineCarte>::value == false);
 
- // Operateur d'affectation par copie existe ?
- REQUIRE ( std::is_copy_assignable<UsineCarte>::value == false );
-}*/
+    // Operateur d'affectation par copie existe ?
+    REQUIRE(std::is_copy_assignable<UsineCarte>::value == false);
+}
 
 //------------------------------------------------------------------------------------------------ 4
-/*TEST_CASE ( "TP4_Carte::UsineN" ) {
- const unsigned n = 32;
+TEST_CASE("TP4_Carte::UsineN")
+{
+    const unsigned n = 32;
 
- UsineCarte usine(n);
+    UsineCarte usine(n);
 
- for (unsigned i = 0; i<n; ++i) {
-  std::unique_ptr<Carte> carte(usine.getCarte());
+    for (unsigned i = 0; i < n; ++i)
+    {
+        std::unique_ptr<Carte> carte(usine.getCarte());
 
-  REQUIRE ( carte->getValeur() == i );
- }
+        REQUIRE(carte->getValeur() == i);
+    }
 
- REQUIRE ( usine.getCarte() == nullptr );
-}*/
+    REQUIRE(usine.getCarte() == nullptr);
+}
 
 //------------------------------------------------------------------------------------------------ 5
-/*TEST_CASE ( "TP4_Carte::PaquetRemplir" ) {
+TEST_CASE ( "TP4_Carte::PaquetRemplir" ) {
  const unsigned n = 27;
 
  paquet_t paquet;
@@ -81,10 +90,10 @@ TEST_CASE ( "TP4_Carte::Usine52" ) {
  for (unsigned i = 0; i<n; ++i) {
   REQUIRE ( paquet[i]->getValeur() == i );
  }
-}*/
+}
 
 //------------------------------------------------------------------------------------------------ 6
-/*TEST_CASE ( "TP4_Carte::PaquetFlux" ) {
+TEST_CASE ( "TP4_Carte::PaquetFlux" ) {
  const unsigned n = 27;
 
  paquet_t paquet;
@@ -101,10 +110,10 @@ TEST_CASE ( "TP4_Carte::Usine52" ) {
  for (unsigned i = 0; i<n; ++i) s2 << paquet[i]->getValeur() << " ";
 
  REQUIRE (s1.str() == s2.str());
-}*/
+}
 
 //------------------------------------------------------------------------------------------------ 7
-/*TEST_CASE ( "TP4_Carte::CarteDestruction" ) {
+TEST_CASE ( "TP4_Carte::CarteDestruction" ) {
  REQUIRE ( Carte::getCompteur() == 0 );
 
  {
@@ -125,10 +134,10 @@ TEST_CASE ( "TP4_Carte::Usine52" ) {
  }
 
  REQUIRE ( Carte::getCompteur() == 0 );
-}*/
+}
 
 //------------------------------------------------------------------------------------------------ 8
-/*TEST_CASE ( "TP4_Conso::Ressource" ) {
+TEST_CASE ( "TP4_Conso::Ressource" ) {
  Ressource r(17);
 
  REQUIRE ( r.getStock() == 17 );
@@ -136,7 +145,7 @@ TEST_CASE ( "TP4_Carte::Usine52" ) {
  r.consommer(6);
 
  REQUIRE ( r.getStock() == 11 );
-}*/
+}
 
 //------------------------------------------------------------------------------------------------ 9
 /*TEST_CASE ( "TP4_Conso::Consommateur" ) {

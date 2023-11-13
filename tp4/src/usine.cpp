@@ -1,14 +1,13 @@
 #include "usine.hpp"
 
-UsineCarte::UsineCarte(/* args */)
+std::unique_ptr<Carte> UsineCarte::getCarte()
 {
-}
-
-UsineCarte::~UsineCarte()
-{
-}
-
-std::unique_ptr<Carte> getCarte()
-{
-    return std::make_unique<Carte> (Carte());
+    if (Compteur >= NombreCarte)
+    {
+        return nullptr;
+    }
+    else
+    {
+        return std::make_unique<Carte>(Carte(Compteur++));
+    }
 }
