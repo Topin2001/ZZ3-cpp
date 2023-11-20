@@ -16,7 +16,7 @@ endif ()
 set ( PROJECT_HEADERS
       src/carte.hpp
       src/complexe.hpp
-      #src/consommateur.hpp
+      src/consommateur.hpp
       src/mouchard.hpp
       #src/paquet.hpp
       src/ressource.hpp
